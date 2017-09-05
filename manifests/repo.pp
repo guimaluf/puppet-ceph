@@ -81,7 +81,7 @@ class ceph::repo (
         apt::key { 'ceph':
           ensure => $ensure,
           id     => '08B73419AC32B4E966C1A330E84AC2C0460F3994',
-          source => 'https://download.ceph.com/keys/release.asc',
+          source => 'http://download.ceph.com/keys/release.asc',
           before => Apt::Source['ceph'],
         }
       }
@@ -169,7 +169,7 @@ not on ${::operatingsystem}, which can lead to packaging issues.")
           name       => "ext-ceph-${release}",
           baseurl    => "http://download.ceph.com/rpm-${release}/el${el}/\$basearch",
           gpgcheck   => '1',
-          gpgkey     => 'https://download.ceph.com/keys/release.asc',
+          gpgkey     => 'http://download.ceph.com/keys/release.asc',
           mirrorlist => absent,
           priority   => '10', # prefer ceph repos over EPEL
           tag        => 'ceph',
@@ -182,7 +182,7 @@ not on ${::operatingsystem}, which can lead to packaging issues.")
           name       => "ext-ceph-${release}-noarch",
           baseurl    => "http://download.ceph.com/rpm-${release}/el${el}/noarch",
           gpgcheck   => '1',
-          gpgkey     => 'https://download.ceph.com/keys/release.asc',
+          gpgkey     => 'http://download.ceph.com/keys/release.asc',
           mirrorlist => absent,
           priority   => '10', # prefer ceph repos over EPEL
           tag        => 'ceph',
@@ -195,7 +195,7 @@ not on ${::operatingsystem}, which can lead to packaging issues.")
             name       => 'ext-ceph-fastcgi',
             baseurl    => "http://gitbuilder.ceph.com/mod_fastcgi-rpm-rhel${el}-x86_64-basic/ref/master",
             gpgcheck   => '1',
-            gpgkey     => 'https://download.ceph.com/keys/autobuild.asc',
+            gpgkey     => 'http://download.ceph.com/keys/autobuild.asc',
             mirrorlist => absent,
             priority   => '20', # prefer ceph repos over EPEL
             tag        => 'ceph',
@@ -216,7 +216,7 @@ not on ${::operatingsystem}, which can lead to packaging issues.")
           name       => "ext-epel-${el}",
           baseurl    => absent,
           gpgcheck   => '1',
-          gpgkey     => "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-${el}",
+          gpgkey     => "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-${el}",
           mirrorlist => "http://mirrors.fedoraproject.org/metalink?repo=epel-${el}&arch=\$basearch",
           priority   => '20', # prefer ceph repos over EPEL
           tag        => 'ceph',
